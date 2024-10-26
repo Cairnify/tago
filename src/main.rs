@@ -44,7 +44,7 @@ fn prompt_for_confirmation(arg: &str) -> bool {
 }
 
 fn prompt_for_delete() -> bool {
-    print!("This will delete all saved times. Are you sure you want to continue? (y/n): ");
+    print!("This will delete all saved timestamps. Are you sure you want to continue? (y/n): ");
     io::stdout().flush().unwrap();
 
     let mut response = String::new();
