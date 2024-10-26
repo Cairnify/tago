@@ -29,5 +29,4 @@ pub fn write_config(config: &HashMap<String, DateTime<Utc>>) {
 
     fs::write(&config_path, toml_data).expect("Could not write to config file");
 
-    println!("Configuration written to {:?}", config_path);
 }

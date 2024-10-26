@@ -24,6 +24,7 @@ struct HaruCli {
 enum HaruCommand {
     Init { arg: Option<String> },
     Days { arg: Option<String> },
+    All,
     Clean,
 }
 
@@ -60,14 +61,8 @@ fn insert_arg_into_config(arg: &str) {
         let Some(_) = config.get(arg) else { return };
 
         if prompt_for_confirmation(arg) {
-            println!("Overwriting entry for '{}'.", arg);
             config.insert(arg.to_string(), Utc::now());
             write_config(&config);
-        } else {
-            println!(
-                "Operation Aborted: Keeping the existing entry for '{}'.",
-                arg
-            );
         }
     } else {
         config.insert(arg.to_string(), Utc::now());
@@ -102,6 +97,13 @@ fn main() {
                 return;
             }
             write_config(&HashMap::new());
+        }
+        HaruCommand::All => {
+            let config = load_config();
+            let now = Utc::now();
+            for (key, value) in &config {
+                println!("{}: {}", key, time::print_elapsed_time(value, &now));
+            }
         }
     }
 }
