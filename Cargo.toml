@@ -1,0 +1,12 @@
+[package]
+name = "haru"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.0", features = ["derive"] }
+chrono = { version = "0.4", features = ["serde"] }
+serde = { version = "1.0", features = ["derive"] }
+chrono-humanize = {version = "0.2.3" }
+home = "0.5.3"
+toml = "0.5"
