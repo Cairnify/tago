@@ -1,11 +1,11 @@
-# Haru
+# Tago
 
 ## Installation
 
 ## Usage
 
 ```
-haru init <name>
+tago init <name>
 ```
 
 
@@ -13,7 +13,7 @@ Stores the current time under name.
 
 
 ```
-haru days <name> 
+tago days <name> 
 ```
 
 
@@ -25,13 +25,13 @@ Shows the time elapsed since the saved time for name.
 
 
 ```
-haru all
+tago all
 ```
 
 Displays all saved time entries.
 
 ```
-haru clean
+tago clean
 ```
 
 Removes all saved time entries.

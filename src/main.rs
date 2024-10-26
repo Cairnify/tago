@@ -14,14 +14,14 @@ struct Config {
 }
 
 #[derive(Parser)]
-#[command(name = "haru")]
-struct HaruCli {
+#[command(name = "tago")]
+struct TagoCli {
     #[command(subcommand)]
-    command: HaruCommand,
+    command: TagoCommand,
 }
 
 #[derive(Subcommand)]
-enum HaruCommand {
+enum TagoCommand {
     Init { arg: Option<String> },
     Days { arg: Option<String> },
     All,
@@ -71,17 +71,17 @@ fn insert_arg_into_config(arg: &str) {
 }
 
 fn main() {
-    let cli = HaruCli::parse();
+    let cli = TagoCli::parse();
 
     match &cli.command {
-        HaruCommand::Init { arg } => {
+        TagoCommand::Init { arg } => {
             if let Some(arg) = arg {
                 insert_arg_into_config(arg);
             } else {
                 insert_arg_into_config("default");
             }
         }
-        HaruCommand::Days { arg } => {
+        TagoCommand::Days { arg } => {
             let arg = arg.clone().unwrap_or_else(|| "default".to_string());
 
             let config = load_config();
@@ -92,13 +92,13 @@ fn main() {
                 None => println!("Could not find: {}", arg),
             }
         }
-        HaruCommand::Clean => {
+        TagoCommand::Clean => {
             if !prompt_for_delete() {
                 return;
             }
             write_config(&HashMap::new());
         }
-        HaruCommand::All => {
+        TagoCommand::All => {
             let config = load_config();
             let now = Utc::now();
             for (key, value) in &config {

@@ -4,7 +4,7 @@ use std::fs;
 
 pub fn get_config_path() -> std::path::PathBuf {
     let mut config_path = home::home_dir().expect("Could not retrieve home directory");
-    config_path.push(".config/haru/config.toml");
+    config_path.push(".config/tago/config.toml");
     config_path
 }
 
