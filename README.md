@@ -41,3 +41,7 @@ Removes all saved time entries.
 ```
 tago clean
 ```
+
+## Misc
+
+All timestamps are saved in ~/.config/tago/config.toml.
