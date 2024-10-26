@@ -2,37 +2,42 @@
 
 ## Installation
 
+### Cargo
+
+```
+cargo install tago
+```
+
 ## Usage
+
+Stores the current time under name.
+
 
 ```
 tago init <name>
 ```
 
-
-Stores the current time under name.
+Shows the time elapsed since the saved time for name.
 
 
 ```
 tago days <name> 
 ```
 
-
-Shows the time elapsed since the saved time for name.
-
 > [!TIP]
 > If the name is omitted, it will default to `default`.
 >
+
+Displays all saved time entries.
 
 
 ```
 tago all
 ```
 
-Displays all saved time entries.
+Removes all saved time entries.
+
 
 ```
 tago clean
 ```
-
-Removes all saved time entries.
-
