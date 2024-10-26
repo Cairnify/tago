@@ -44,4 +44,4 @@ tago clean
 
 ## Misc
 
-All timestamps are saved in ~/.config/tago/config.toml.
+All timestamps are saved in `~/.config/tago/config.toml`.
