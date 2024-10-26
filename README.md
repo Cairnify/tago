@@ -1,5 +1,7 @@
 # Tago
 
+[![Crates.io](https://img.shields.io/badge/crates.io-v0.1.0-blue)](https://crates.io/crates/tago)
+
 ## Installation
 
 ### Cargo
