@@ -2,6 +2,15 @@
 
 [![Crates.io](https://img.shields.io/badge/crates.io-v0.1.1-blue)](https://crates.io/crates/tago)
 
+# Example
+
+```
+❯ tago all
+feature-tago-delete: 12 hours, 38 minutes, 13 seconds, 915 ms and 963 µs
+default: 2 months, 1 week, 3 days, 21 hours, 33 minutes, 4 seconds, 660 ms and 914 µs
+cairnify/login: 34 seconds, 527 ms and 736 µs
+```
+
 ## Installation
 
 ### Cargo
