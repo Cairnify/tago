@@ -2,7 +2,7 @@
 
 [![Crates.io](https://img.shields.io/badge/crates.io-v0.1.1-blue)](https://crates.io/crates/tago)
 
-# Example
+## Example
 
 ```
 ❯ tago all
@@ -56,3 +56,7 @@ tago clean
 ## Misc
 
 All timestamps are saved in `~/.config/tago/config.toml`.
+
+### Why is it named Tago?
+
+Tago means `day` in Esperanto.
