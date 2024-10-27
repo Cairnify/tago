@@ -24,6 +24,7 @@ struct TagoCli {
 enum TagoCommand {
     Init { arg: Option<String> },
     Days { arg: Option<String> },
+    Delete { arg: Option<String> },
     All,
     Clean,
 }
@@ -43,8 +44,23 @@ fn prompt_for_confirmation(arg: &str) -> bool {
     response.trim().eq_ignore_ascii_case("y")
 }
 
-fn prompt_for_delete() -> bool {
+fn prompt_for_delete_all() -> bool {
     print!("This will delete all saved timestamps. Are you sure you want to continue? (y/n): ");
+    io::stdout().flush().unwrap();
+
+    let mut response = String::new();
+    io::stdin()
+        .read_line(&mut response)
+        .expect("Failed to read line");
+
+    response.trim().eq_ignore_ascii_case("y")
+}
+
+fn prompt_for_delete(arg: &str) -> bool {
+    print!(
+        "This will delete the timestamp for {}. Are you sure you want to continue? (y/n): ",
+        arg
+    );
     io::stdout().flush().unwrap();
 
     let mut response = String::new();
@@ -92,8 +108,19 @@ fn main() {
                 None => println!("Could not find: {}", arg),
             }
         }
+        TagoCommand::Delete { arg } => {
+            let arg = arg.clone().unwrap_or_else(|| "default".to_string());
+
+            if !prompt_for_delete(&arg) {
+                return;
+            }
+
+            let mut config = load_config();
+            config.remove(&arg);
+            write_config(&config);
+        }
         TagoCommand::Clean => {
-            if !prompt_for_delete() {
+            if !prompt_for_delete_all() {
                 return;
             }
             write_config(&HashMap::new());
